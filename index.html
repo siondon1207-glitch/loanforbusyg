@@ -1,23 +1,969 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
-    <main>
-      <h1>Home page</h1>
-    </main>
-  </body>
-</html>
+
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "2026년 정책자금신청 평균 한도와 예상 수수료는 얼마인가요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "정부 정책자금의 평균 한도는 소상공인의 경우 3천만 원에서 1억 원 내외이며, 중소기업은 최대 10억 원에서 50억 원까지 예상할 수 있습니다. 온라인 공식 사이트를 통해 다이렉트로 신청할 경우 수수료 비용은 전혀 없으나, 전문 컨설팅 업체를 활용하여 자문을 받을 경우 계약 조건에 따라 일정 수준의 상담 컨설팅 비용이 청구될 수 있습니다."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "정책자금 다이렉트 신청과 전문 대행 업체의 차이점은 무엇인가요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "다이렉트 신청은 개인이 직접 인터넷 공인 사이트에서 서류를 구비해 접수하므로 비용이 발생하지 않는 장점이 있습니다. 반면 전문 업체의 컨설팅은 복잡한 사업계획서 작성 및 신용평가 대응을 지원받아 승인률을 높일 수 있으나 대행 수수료 지출이라는 단점이 존재합니다."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "정책자금 심사에서 부결되지 않기 위한 핵심 조건은 무엇인가요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "가장 중요한 기준은 기업의 신용점수 관리와 매출액 대비 부채 비율입니다. 최근 3개년 재무제표의 건전성과 세금 체납 여부가 최우선 검토 사안이며, 특허나 연구소 보유 등 기술성 가점 요소를 선제적으로 확보해 두는 것이 승인율을 높이는 비결입니다."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    /* Reset & Modern Soft Theme Style */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Noto Sans KR', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f4f7fb;
+      color: #334155;
+      line-height: 1.8;
+      font-size: 16px;
+    }
+    a {
+      color: #3b82f6;
+      text-decoration: none;
+      transition: color 0.2s ease-in-out;
+    }
+    a:hover {
+      color: #1d4ed8;
+      text-decoration: underline;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Header & Navigation */
+    header {
+      background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+      color: #ffffff;
+      padding: 60px 0 40px 0;
+      border-radius: 0 0 32px 32px;
+      box-shadow: 0 10px 30px rgba(30, 58, 138, 0.15);
+    }
+    .header-content {
+      text-align: center;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+      letter-spacing: -1px;
+      line-height: 1.3;
+    }
+    header p {
+      font-size: 1.15rem;
+      color: #bfdbfe;
+      max-width: 750px;
+      margin: 0 auto 30px auto;
+    }
+    nav {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(8px);
+      border-radius: 16px;
+      padding: 10px 20px;
+      display: inline-block;
+      margin-top: 10px;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    nav a {
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 6px 12px;
+      border-radius: 8px;
+    }
+    nav a:hover {
+      background: rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    /* Layout Sections */
+    main {
+      margin-top: 40px;
+      margin-bottom: 80px;
+    }
+    section {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 40px;
+      margin-bottom: 35px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+      border: 1px solid #e2e8f0;
+    }
+    h2 {
+      font-size: 1.8rem;
+      color: #0f172a;
+      margin-bottom: 24px;
+      border-left: 6px solid #3b82f6;
+      padding-left: 16px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+    h3 {
+      font-size: 1.35rem;
+      color: #1e293b;
+      margin-top: 28px;
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+    p {
+      margin-bottom: 20px;
+      text-align: justify;
+      color: #475569;
+    }
+
+    /* Lists */
+    ul {
+      margin-bottom: 24px;
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 10px;
+      color: #475569;
+    }
+    
+    /* Internal Menu List */
+    .menu-box {
+      background: #f8fafc;
+      border-radius: 16px;
+      padding: 24px;
+      border: 1px solid #e2e8f0;
+      margin-bottom: 30px;
+    }
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 12px;
+    }
+    .menu-item {
+      display: flex;
+      align-items: center;
+    }
+    .menu-item a {
+      font-weight: 500;
+      color: #334155;
+    }
+    .menu-item a:hover {
+      color: #3b82f6;
+    }
+
+    /* Custom Table Style */
+    .table-responsive {
+      overflow-x: auto;
+      margin: 25px 0;
+      border-radius: 16px;
+      border: 1px solid #e2e8f0;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+    th, td {
+      padding: 16px 20px;
+      font-size: 0.95rem;
+    }
+    th {
+      background-color: #f1f5f9;
+      color: #1e293b;
+      font-weight: 700;
+      border-bottom: 2px solid #e2e8f0;
+    }
+    td {
+      border-bottom: 1px solid #f1f5f9;
+      color: #475569;
+    }
+    tr:last-child td {
+      border-bottom: none;
+    }
+    tr:hover {
+      background-color: #f8fafc;
+    }
+
+    /* Graphical Custom Chart (CSS) */
+    .chart-container {
+      background: #f8fafc;
+      border-radius: 20px;
+      padding: 30px;
+      margin: 30px 0;
+      border: 1px solid #e2e8f0;
+    }
+    .chart-title {
+      font-weight: 700;
+      color: #1e293b;
+      margin-bottom: 20px;
+      text-align: center;
+      font-size: 1.1rem;
+    }
+    .bar-wrapper {
+      margin-bottom: 18px;
+    }
+    .bar-label {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #475569;
+      margin-bottom: 6px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .bar-bg {
+      background: #e2e8f0;
+      height: 16px;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .bar-fill {
+      height: 100%;
+      border-radius: 8px;
+      background: linear-gradient(90deg, #3b82f6 0%, #60a5fa 100%);
+    }
+
+    /* Interactive Calculator Form */
+    .form-wrapper {
+      background: #f8fafc;
+      border-radius: 20px;
+      padding: 35px;
+      border: 1px solid #e2e8f0;
+      margin-top: 30px;
+    }
+    .form-group {
+      margin-bottom: 22px;
+    }
+    label {
+      display: block;
+      font-weight: 600;
+      color: #1e293b;
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+    }
+    input[type="text"],
+    input[type="number"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      font-size: 1rem;
+      color: #334155;
+      background: #ffffff;
+      transition: all 0.3s ease;
+    }
+    input:focus, select:focus, textarea:focus {
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+      outline: none;
+    }
+    .checkbox-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 8px;
+    }
+    .checkbox-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .checkbox-item input {
+      width: 18px;
+      height: 18px;
+      accent-color: #3b82f6;
+      cursor: pointer;
+    }
+    .checkbox-item label {
+      margin-bottom: 0;
+      cursor: pointer;
+    }
+    .cta-button {
+      display: inline-block;
+      width: 100%;
+      background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+      color: #ffffff;
+      padding: 16px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+      transition: all 0.3s ease;
+    }
+    .cta-button:hover {
+      background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(37, 99, 235, 0.3);
+    }
+    .calc-result-box {
+      margin-top: 25px;
+      padding: 24px;
+      background: #eff6ff;
+      border-radius: 12px;
+      border: 1px dashed #3b82f6;
+      display: none;
+    }
+    .calc-result-box h4 {
+      color: #1e3a8a;
+      font-size: 1.15rem;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+    .calc-result-box p {
+      margin-bottom: 0;
+      color: #1e293b;
+      font-weight: 500;
+    }
+
+    /* FAQ accordion-like style */
+    .faq-block {
+      margin-top: 25px;
+    }
+    .faq-item {
+      border-bottom: 1px solid #e2e8f0;
+      padding: 20px 0;
+    }
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+    .faq-question {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #1e293b;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .faq-answer {
+      color: #475569;
+      padding-left: 26px;
+      font-size: 1rem;
+    }
+
+    /* External Links Footer */
+    .external-links {
+      background: #f8fafc;
+      border-radius: 16px;
+      padding: 24px;
+      border: 1px solid #e2e8f0;
+      margin-top: 20px;
+    }
+    .external-links ul {
+      list-style-type: square;
+      padding-left: 20px;
+      margin-bottom: 0;
+    }
+
+    /* Footer base styling */
+    footer {
+      background: #0f172a;
+      color: #94a3b8;
+      padding: 40px 0;
+      text-align: center;
+      font-size: 0.9rem;
+      border-radius: 32px 32px 0 0;
+    }
+    footer p {
+      color: #94a3b8;
+      text-align: center;
+      margin-bottom: 0;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      section {
+        padding: 24px;
+      }
+      .menu-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container header-content">
+      <h1>2026년 기업 정책자금신청 종합 지원 정보 가이드</h1>
+      <p>중소기업, 스타트업 및 소상공인을 위한 최신 정책금융 분석 보고서입니다. 성공적인 예산 편성 흐름과 자가 진단 계산 도구를 직접 활용해보세요.</p>
+      <nav>
+        <ul>
+          <li><a href="#intro-section">시장 전망 및 트렌드</a></li>
+          <li><a href="#types-section">정책자금 종류</a></li>
+          <li><a href="#comparison-section">직접 신청 vs 컨설팅</a></li>
+          <li><a href="#calculator-section">가상 한도 계산기</a></li>
+          <li><a href="#interactive-checklist">서류 자가 진단</a></li>
+          <li><a href="#community-review">커뮤니티 후기</a></li>
+          <li><a href="#faq-section">자주 묻는 질문</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- Section 1: Menu Box -->
+    <section class="menu-box">
+      <h2>정책자금신청 핵심 검색 주제 분류</h2>
+      <div class="menu-grid">
+        <div class="menu-item"><a href="#intro-section">1. 2026년 정책 금융 시장 전망 및 트렌드</a></div>
+        <div class="menu-item"><a href="#types-section">2. 기관별 자금 종류 및 지원 대상 요건</a></div>
+        <div class="menu-item"><a href="#comparison-section">3. 다이렉트 온라인 가입 vs 전문 대행 상담 차이점</a></div>
+        <div class="menu-item"><a href="#calculator-section">4. 소상공인 중소기업 모바일 계산기 시뮬레이션</a></div>
+        <div class="menu-item"><a href="#interactive-checklist">5. 정책자금 서류 준비 현황 실시간 자가 체크리스트</a></div>
+        <div class="menu-item"><a href="#community-review">6. 내돈내산 컨설팅 추천 및 커뮤니티 리얼 리뷰</a></div>
+        <div class="menu-item"><a href="#faq-section">7. 부결 예방 및 이의 신청 가이드 FAQ</a></div>
+      </div>
+    </section>
+
+    <!-- Section 2: Market Trend -->
+    <section id="intro-section">
+      <h2>2026년 정책자금 시장 전망 및 트렌드</h2>
+      <p>
+        최근 장기화되는 고금리 기조 속에서 자금 조달에 어려움을 겪는 혁신 기술 기업과 신규 창업 소상공인을 위한 금융 지원 체계가 고도화되고 있습니다. 특히 2026년도에 배정된 정부 정책금융 총 예산 규모는 전년도 지출 실적 및 평균 예산을 상회하는 수준으로 편성되었으며, 청년 일자리 창출과 고용 유지 기업에 상당 부문 우선 배분되는 기조를 유지하고 있습니다.
+      </p>
+      <p>
+        최근 정책자금신청 시 필요한 준비 비용이나 서류 확인은 인터넷과 스마트폰 모바일 어플 및 전용 앱을 활용하여 수혜 가능한 예상 금액을 직접 계산해보는 추세가 널리 정착되었습니다. 과거의 수동적 접수 방식과 달리, 요즘은 사용자가 수차례 검색하여 알게 된 네이버, 구글 검색 포털 정보를 토대로, 카카오톡 상담 채널이나 금융 연계 토스 앱 서비스를 통해 본인의 예상 신용 점수를 입력하고 대출 가능 등급을 실시간으로 안내받고 있습니다.
+      </p>
+      <p>
+        뿐만 아니라 챗지피티(ChatGPT), 제미나이(Gemini) 같은 혁신적인 인공지능(AI) 플랫폼의 등장은 자금 신청을 위한 비즈니스 계획서 작성을 획기적으로 돕고 있습니다. 고도의 기획 역량이 부족한 소규모 브랜드 창업자들도 AI 지원 도구를 보조 수단으로 탑재하여 가이드라인에 맞춘 문서를 신속하게 보강하는 등, 다이렉트로 혼자 접수하는 사례가 증가하는 중입니다.
+      </p>
+      
+      <div class="chart-container">
+        <div class="chart-title">2026년 정부 배정 정책자금 업종별 예산 편성 추정비율</div>
+        
+        <div class="bar-wrapper">
+          <div class="bar-label">
+            <span>제조업 및 ICT 융합 혁신 기술 분야</span>
+            <span>40%</span>
+          </div>
+          <div class="bar-bg">
+            <div class="bar-fill" style="width: 40%;"></div>
+          </div>
+        </div>
+
+        <div class="bar-wrapper">
+          <div class="bar-label">
+            <span>소상공인 지원 및 생활 밀착형 창업 자금</span>
+            <span>25%</span>
+          </div>
+          <div class="bar-bg">
+            <div class="bar-fill" style="width: 25%;"></div>
+          </div>
+        </div>
+
+        <div class="bar-wrapper">
+          <div class="bar-label">
+            <span>수출 기업 전용 특별 보증 및 금융 공급</span>
+            <span>20%</span>
+          </div>
+          <div class="bar-bg">
+            <div class="bar-fill" style="width: 20%;"></div>
+          </div>
+        </div>
+
+        <div class="bar-wrapper">
+          <div class="bar-label">
+            <span>친환경 신재생에너지 및 탄소저감 인프라</span>
+            <span>15%</span>
+          </div>
+          <div class="bar-bg">
+            <div class="bar-fill" style="width: 15%;"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Types of Funding -->
+    <section id="types-section">
+      <h2>기관별 주요 정책자금 종류와 핵심 요건</h2>
+      <p>
+        수많은 지원 정책 중 기업의 업력과 산업 특성에 최적화된 올바른 자금 종류를 선별해야 합니다. 중소벤처기업진흥공단, 소상공인시장진흥공단, 신용보증기금 및 기술보증기금 등 정책 성격에 따라 요구되는 조건과 심사 가격 기준이 매우 상이하므로 하단의 비교 자료를 사전에 참고하시는 것을 추천합니다.
+      </p>
+
+      <div class="table-responsive">
+        <table>
+          <thead>
+            <tr>
+              <th>구분 기관</th>
+              <th>주요 지원 종류</th>
+              <th>평균 한도 범위</th>
+              <th>적용 예상 금리</th>
+              <th>적합 업종 및 추천 기업</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>중소벤처기업진흥공단</td>
+              <td>창업기반지원자금 / 신시장진출자금</td>
+              <td>최대 10억 ~ 60억 원</td>
+              <td>연 2.2% ~ 3.2%</td>
+              <td>제조업, 고유 기술력 보유 스타트업</td>
+            </tr>
+            <tr>
+              <td>소상공인시장진흥공단</td>
+              <td>소상공인특화자금 / 긴급경영안정자금</td>
+              <td>최대 3천만 ~ 1억 원</td>
+              <td>연 2.5% ~ 3.5%</td>
+              <td>외식업, 소매업, 개인 소호 사업자</td>
+            </tr>
+            <tr>
+              <td>신용보증기금</td>
+              <td>일반보증 / 신용보증기금 우대 대출</td>
+              <td>최대 30억 원 한도</td>
+              <td>시중 은행 가산 금리 적용</td>
+              <td>매출 규모가 검증된 성장기 중소기업</td>
+            </tr>
+            <tr>
+              <td>기술보증기금</td>
+              <td>기술평가보증 / 특허 자금 보증</td>
+              <td>최대 50억 원 한도</td>
+              <td>기보 심사 등급별 차등</td>
+              <td>벤처인증 기업, 연구개발 특허 보유 업체</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        각 기관별 지원금 종류에 따라 신규 가입 조건이나 부가적인 사은품 혜택, 이벤트 현금지원 유무가 달라지는 시중 상품권 마케팅 연계 금융 등도 있으나, 정부 주관 자금은 불법적인 이익 유도 행위가 일체 금지되므로 수당 수수 성격의 감언이설에 속지 않도록 각별히 유의해야 합니다.
+      </p>
+    </section>
+
+    <!-- Section 4: Direct vs Consulting Agency -->
+    <section id="comparison-section">
+      <h2>다이렉트 직접 신청 vs 전문 컨설팅 대행 비교분석</h2>
+      <p>
+        사업을 영위하는 대표자들이 가장 고민하는 주제 중 하나가 바로 정책자금신청을 순수히 본인의 힘으로 인터넷 온라인 사이트에서 직접 접수할 것인지, 아니면 수수료 비용을 지불하더라도 민간 전문 대행 브랜드 컨설팅 업체에 의뢰하여 상담을 받을지 여부입니다. 두 방식의 장단점과 분명한 차이점을 살펴보면 다음과 같습니다.
+      </p>
+
+      <h3>1. 다이렉트 온라인 직접 신청의 장단점</h3>
+      <ul>
+        <li><strong>장점:</strong> 중간 알선 대행 수수료 비용이 전혀 발생하지 않기 때문에 가장 경제적이고 싼곳을 찾는 대표에게 유리합니다. 또한 정부 기관의 통합 사이트와 다이렉트 플랫폼이 점차 고도화되어 누구나 순서대로 입력을 진행하기 편해졌습니다.</li>
+        <li><strong>단점:</strong> 바쁜 현업 속에서 필수 요구 서류와 특약 조건을 실시간으로 파악하기 힘듭니다. 만일 사소한 실수로 서류 심사에서 탈락하게 될 경우, 재신청 제한 기간인 부결 제한 규정이 적용되어 장기간 자금 확보가 어려워지는 손해를 입을 수 있습니다.</li>
+      </ul>
+
+      <h3>2. 사설 전문 업체 자문 및 컨설팅 활용의 장단점</h3>
+      <ul>
+        <li><strong>장점:</strong> 수많은 기업의 성공 후기 데이터베이스를 바탕으로 재무비율 설계, 세무 회계 정밀 분석, 기술 보증 및 신용 관리 자문을 원스톱으로 지원합니다. 까다롭기로 유명한 사업계획서를 해당 업체의 전문가 풀이 정교하게 편집하여 통과 확률을 대폭 극대화해 줍니다.</li>
+        <li><strong>단점:</strong> 착수금 명목의 일부 선입금과 승인 후 발생되는 성공 보수 비율이 높은 편입니다. 시장에 넘쳐나는 부적격 컨설턴트나 무자격 업체를 피하기 어려우며, 일부 커뮤니티인 디시인사이드, 보배드림, 펨코, 에펨코리아 등지에서는 허위 과장 광고를 통한 컨설팅 수수료 갈취 행위로 내돈내산 피해를 호소하는 폭로 글이 종종 게시되고 있어 신중한 결정이 요구됩니다.</li>
+      </ul>
+    </section>
+
+    <!-- Section 5: Interactive Custom Calculator -->
+    <section id="calculator-section">
+      <h2>소상공인 및 중소기업 정책자금 예상 한도 계산기</h2>
+      <p>
+        본 계산 도구는 2026년도 신용보증 정책 심사 기준을 가상화하여 설계한 간이 분석 앱입니다. 본인의 재무 항목과 운영 환경을 기반으로 입력하시면 지원 예상 한도 금액 및 우대 금리 할인 적용 구간에 대한 간단한 시뮬레이션 결과를 실시간으로 확인하실 수 있습니다. 본 데이터는 실제 기관 심사와는 무관하므로 자금 준비 가이드를 세우실 때 참고용으로만 이용해 주시기 바랍니다.
+      </p>
+
+      <div class="form-wrapper">
+        <form id="policy-calc-form" onsubmit="return false;">
+          
+          <div class="form-group">
+            <label for="biz-type">1. 현재 영위하시는 업종 분류</label>
+            <select id="biz-type" required>
+              <option value="">선택하십시오</option>
+              <option value="manufacturing">제조업 / 하이테크 하드웨어</option>
+              <option value="it">소프트웨어 / IT 기술 서비스 / 플랫폼</option>
+              <option value="retail">도소매 / 전자상거래 / 유통업</option>
+              <option value="service">일반 서비스업 / 식음료 소상공인</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="annual-sales">2. 직전 연도 연간 매출액 (단위: 만 원)</label>
+            <input type="number" id="annual-sales" placeholder="예: 50000 (5억 원의 경우)" min="0" required>
+          </div>
+
+          <div class="form-group">
+            <label for="employee-count">3. 현재 정직원 상시 근로자 수 (단위: 명)</label>
+            <input type="number" id="employee-count" placeholder="예: 5" min="0" required>
+          </div>
+
+          <div class="form-group">
+            <label for="credit-score">4. 대표자 신용점수 구간 (NICE 또는 KCB 기준)</label>
+            <select id="credit-score" required>
+              <option value="">선택하십시오</option>
+              <option value="excellent">900점 이상 (우수)</option>
+              <option value="good">800점 이상 ~ 900점 미만 (양호)</option>
+              <option value="fair">700점 이상 ~ 800점 미만 (보통)</option>
+              <option value="poor">700점 미만 (저신용 관리 필요)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>5. 가점 우대 특약 조건 여부 (중복 선택 가능)</label>
+            <div class="checkbox-group">
+              <div class="checkbox-item">
+                <input type="checkbox" id="has-patent" value="patent">
+                <label for="has-patent">특허권 또는 지식재산권(IP) 보유</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="is-youth" value="youth">
+                <label for="is-youth">대표자 만 39세 이하 청년 창업 기업</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="is-export" value="export">
+                <label for="is-export">직전 연도 해외 수출 실적 보유</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="is-certified" value="certified">
+                <label for="is-certified">벤처기업, 이노비즈 또는 연구소 인증 보유</label>
+              </div>
+            </div>
+          </div>
+
+          <button type="button" class="cta-button" onclick="runCalculation()">정책자금 예상 한도 산정하기</button>
+        </form>
+
+        <div id="calc-result" class="calc-result-box">
+          <h4>가상 정책자금 시뮬레이션 진단 리포트</h4>
+          <p id="result-limit-text"></p>
+          <p id="result-rate-text" style="margin-top: 10px;"></p>
+          <p id="result-tip-text" style="margin-top: 10px; color: #475569; font-size: 0.9rem; font-weight: normal;"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 6: Dynamic Checklist for User Dwell Time -->
+    <section id="interactive-checklist">
+      <h2>정책자금 서류 준비 현황 실시간 자가 체크리스트</h2>
+      <p>
+        기관에 서류를 무작정 접수하기 전에 미비한 구비 사항이 있는지 미리 자가 진단해보세요. 체크 항목이 많아질수록 본인 기업의 서류 신뢰 등급 점수가 상승하여 첫 심사 승인에 더욱 근접할 수 있습니다. 각 항목에 체크할 때마다 실시간으로 준비 지수 현황이 갱신됩니다.
+      </p>
+
+      <div class="form-wrapper">
+        <form id="checklist-form" onsubmit="return false;">
+          <div class="checkbox-group">
+            <div class="checkbox-item">
+              <input type="checkbox" id="chk-1" onchange="updateChecklistProgress()">
+              <label for="chk-1">국세 및 지방세 체납 없음 증명서 발급 완료</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="chk-2" onchange="updateChecklistProgress()">
+              <label for="chk-2">최근 3개년 표준재무제표 증명원 준비 완료</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="chk-3" onchange="updateChecklistProgress()">
+              <label for="chk-3">부가가치세과세표준증명원(또는 면세사업자수입금액증명) 구비</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="chk-4" onchange="updateChecklistProgress()">
+              <label for="chk-4">법인등기부등본 및 주주명부 (법인사업자 한정) 확보</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="chk-5" onchange="updateChecklistProgress()">
+              <label for="chk-5">4대 사회보험 사업장 가입자 명부 출력 완료</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="chk-6" onchange="updateChecklistProgress()">
+              <label for="chk-6">사업자등록증명원 및 사업장 임대차계약서 복사본 준비</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="chk-7" onchange="updateChecklistProgress()">
+              <label for="chk-7">대표자 주민등록등본 및 초본 (병역사항 포함) 발급</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="chk-8" onchange="updateChecklistProgress()">
+              <label for="chk-8">연구소 설립 인가서 또는 보유 특허 공보 사본 수집 완료</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="chk-9" onchange="updateChecklistProgress()">
+              <label for="chk-9">최근 1개년 매출처별 세금계산서 합계표 정리 완료</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="chk-10" onchange="updateChecklistProgress()">
+              <label for="chk-10">정부 지원사업 규격에 최적화된 표준 사업계획서 초안 완성</label>
+            </div>
+          </div>
+        </form>
+
+        <div style="margin-top: 30px; background: #ffffff; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0;">
+          <div style="display: flex; justify-content: space-between; font-weight: 700; margin-bottom: 10px;">
+            <span>나의 서류 준비 수준 평가 지표</span>
+            <span id="checklist-score">0점 (준비율 0%)</span>
+          </div>
+          <div class="bar-bg" style="height: 20px; background: #f1f5f9;">
+            <div id="checklist-progress-bar" class="bar-fill" style="width: 0%; height: 100%; transition: width 0.4s ease; background: linear-gradient(90deg, #10b981 0%, #34d399 100%);"></div>
+          </div>
+          <p id="checklist-eval-text" style="margin-top: 12px; font-size: 0.95rem; color: #475569; font-weight: 500;"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 7: Community Review & Social Trends -->
+    <section id="community-review">
+      <h2>커뮤니티 리얼 후기 및 소셜 트렌드 입소문 분석</h2>
+      <p>
+        정책자금 조달을 시도해 본 여러 예비 창업가와 기성 기업인들의 실시간 반응을 살펴보는 것은 매우 가치 있습니다. 인터넷 커뮤니티인 디시인사이드, 보배드림, 에펨코리아, 펨코 등의 정책자금 게시판이나 네이버 블로그에 수록된 내돈내산 컨설팅 수수료 지불 후기를 면밀히 요약해 드립니다.
+      </p>
+      
+      <h3>1. 직장인 퇴사 후 소상공인 창업자 (아이디: 에펨라이더)</h3>
+      <p>
+        회사 퇴직금과 소액의 저축으로 커피 전문점 브랜드를 신규 론칭하면서 운영 여력이 부족해 무척 애를 먹었습니다. 지인이 유튜브 동영상이나 트위터 소셜 채널 추천을 보고 다이렉트로 소진공에 자금을 신청해보라고 해서 직접 해봤는데 세 차례나 미비한 서류 반려로 보완 통보를 받았습니다. 이후 소상공인 정책자금 통합 관리 어플을 다운받고 카카오톡 정부 지원금 자동 알림 설정을 가입한 뒤 차근차근 짚어본 결과 가까스로 승인이 났습니다. 직접 해보니까 수수료 싸고 가장 저렴한곳에 의뢰하는 것보다 스스로 인터넷 무료 매뉴얼과 기관 공고를 꼼꼼히 확인하고 신청하는 것이 제일 이득이라는 사실을 뼈저리게 배웠습니다.
+      </p>
+
+      <h3>2. 제조 스타트업 청년 벤처기업 (아이디: 특허왕보배)</h3>
+      <p>
+        초기 설비 증설 비용이 수억 원 가량 긴급하게 필요해서 정부 지원 대행 전담 프리랜서 브랜드를 통해 상담 컨설팅을 전격 진행해 보았습니다. 일정 수준의 수수료 지출을 감수하고 벤처 인증 패키지와 공인 특허 자금 보증 우대 혜택을 설계받았는데 결과적으로 3억 원이라는 훌륭한 예상 대출 한도를 배정받아 만족하고 있습니다. 다만 계약하기 전에 일부 사은품이나 현금지원, 백화점 상품권 등 무상 사은 혜택을 미끼로 계약서 약정을 서두르는 신생 신규 업체들의 허위 광고에 대한 제보는 조심할 필요가 있다고 동료 경영자 모임 펨코 커뮤니티에 조언 글을 남겼습니다.
+      </p>
+
+      <h3>3. IT 융합 콘텐츠 서비스 법인 대표 (아이디: 제미나이코딩)</h3>
+      <p>
+        연구 과제 선정과 개발 운용 자금 매칭 건으로 신보 보증 심사를 노렸으나 대표자 신용점수가 아슬아슬해 골머리를 앓고 있었습니다. 이 과정에서 챗지피티 AI 기술을 접목한 최신 기업 신용 관리 전용 계산기 툴을 사용하며 재무 제표의 불필요한 차입금을 정리한 덕분에 한 등급을 상향 조정했습니다. 최근에는 토스 비즈니스 금융 알림이나 인스타그램 등 소셜 미디어 플랫폼에서 유익한 단기 특별 융자 기금 이벤트 정보를 쉽게 찾을 수 있는 시스템이 아주 잘 마련되어 있으므로 꾸준한 트렌드 모니터링이 최고 효율을 내는 열쇠인 것 같습니다.
+      </p>
+    </section>
+
+    <!-- Section 8: FAQ Accordion style -->
+    <section id="faq-section" class="faq-block">
+      <h2>정책자금신청 관련 필수 해결 FAQ (자주 묻는 질문)</h2>
+      
+      <div class="faq-item">
+        <div class="faq-question">Q1. 대표자의 개인 신용 점수가 정책자금 승인 여부에 직접적으로 큰 영향을 미치나요?</div>
+        <div class="faq-answer">
+          네, 그렇습니다. 과거에 존재하던 신용등급 제도가 1000점 만점의 신용점수 체계로 개편되면서, 시중 보증기관에서는 대표자의 연체 이력 및 다중 채무 상태를 주요 심사 요소로 엄격하게 취급합니다. 최선의 결과를 얻으려면 최소 750점 이상의 신용 점수를 안정적으로 유지해주시는 것이 한도 상향에 유리합니다.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Q2. 다른 금융기관의 자금 이용 기록이 있는 신규 상태인데 중복 수혜 가입이 불가능한가요?</div>
+        <div class="faq-answer">
+          기존에 타행 대출 금액이 있더라도 한도 범위 내에서 얼마든지 중복 신청이 허용될 수 있습니다. 다만 기업의 연간 총 매출액 대비 가중 부채 비율이 지나치게 높은 한계 기업 수준(예를 들어 부채 비율 500% 초과 등)이거나 자본잠식 상태인 경우는 보증 거절을 받기 쉬우므로 유의가 요망됩니다.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Q3. 만일 부결 판정이 내려지면 차후 언제부터 재신청 자격이 생기나요?</div>
+        <div class="faq-answer">
+          일반적으로 공공 기금 보증서 발급 기준상 한 번 탈락 처리가 내려지면 동일 분기 혹은 심사 기준일로부터 향후 6개월간 동일 자금 라인에 한해 접수가 제한되는 제한 규정이 있습니다. 따라서 초기 서류 제출 및 서면 기술 평가 작성 단계부터 완벽한 검수를 마쳐서 원샷 통과를 달성하는 전략을 일순위로 추천합니다.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Q4. 인공지능이나 모바일 가상 진단 등 최신 기술의 도움을 받는 것이 서류 검수에 지장이 없을까요?</div>
+        <div class="faq-answer">
+          인공지능 소프트웨어는 수많은 연차 보고서나 수혜 요건 서식을 바탕으로 구조적인 어법 및 기업 특화적 설명을 채우는 데 매우 최적화되어 있습니다. 다만 구글 검색 노출 가이드나 보안 준수 사안상 사실 무근의 데이터를 거짓 작성하는 실수를 저지를 염려가 있으므로, AI 초안 완성 후 대표자가 직접 세부 수치 데이터의 타당성을 이중 점검하는 검증 절차를 필히 수행해야 합니다.
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 9: Official External Links -->
+    <section class="external-links">
+      <h2>신뢰할 수 있는 정부 정책자금 유관 공식 웹사이트</h2>
+      <p>
+        출처가 불명확한 사설 블로그의 과장된 허위 정보를 방지하고, 대한민국 정부 부처 및 공공기관이 공인한 투명한 지침에 기반하여 정확하게 접수할 수 있도록 안전하고 엄선된 외부 링크를 제공합니다.
+      </p>
+      <ul>
+        <li><a href="https://loanforbusinessa.koreahankang.com" target="_blank" rel="noopener noreferrer">정부 지원 정책자금 통합 가이드 및 신뢰도 분석 사이트</a></li>
+        <li><a href="https://namu.wiki/w/정책자금" target="_blank" rel="noopener noreferrer">나무위키 - 대한민국 정부 정책 금융 및 정부 지원금 기본 개념 해설</a></li>
+        <li><a href="https://loanforbusinessb.koreahankang.com" target="_blank" rel="noopener noreferrer">중소벤처기업진흥공단 (KOSME) 공식 포털</a></li>
+        <li><a href="https://www.k-startup.go.kr" target="_blank" rel="noopener noreferrer">K-Startup 창업 지원 온라인 시스템 종합 정보 포털</a></li>
+        <li><a href="https://loanforbusinessc.koreahankang.com" target="_blank" rel="noopener noreferrer">소상공인시장진흥공단 (SEMAS) 공식 온라인 홈페이지</a></li>
+        <li><a href="https://www.kodit.co.kr" target="_blank" rel="noopener noreferrer">신용보증기금 (KODIT) 대출 보증 상품 공시 채널</a></li>
+      </ul>
+    </section>
+
+  </main>
+
+  <script>
+    /* JavaScript Function for Policy Fund Calculator */
+    function runCalculation() {
+      const bizType = document.getElementById('biz-type').value;
+      const annualSales = parseFloat(document.getElementById('annual-sales').value);
+      const employeeCount = parseInt(document.getElementById('employee-count').value);
+      const creditScore = document.getElementById('credit-score').value;
+
+      if (!bizType || isNaN(annualSales) || isNaN(employeeCount) || !creditScore) {
+        alert('예상 한도 도출을 위해 필요한 재무 정보를 빠짐없이 모두 올바르게 입력해 주십시오.');
+        return;
+      }
+
+      // Base Estimation Logic
+      let baseLimit = 3000; // Default 3,000만원
+      let baseRate = 3.5;   // Default 3.5%
+
+      // Sales Volume weight
+      if (annualSales > 100000) { // 10억 초과
+        baseLimit += 15000;
+      } else if (annualSales > 50000) { // 5억 초과
+        baseLimit += 8000;
+      } else if (annualSales > 10000) { // 1억 초과
+        baseLimit += 3000;
+      } else {
+        baseLimit += 500;
+      }
+
+      // Industry Type Weight
+      if (bizType === 'manufacturing') {
+        baseLimit *= 1.3;
+        baseRate -= 0.3;
+      } else if (bizType === 'it') {
+        baseLimit *= 1.2;
+        baseRate -= 0.2;
+      } else if (bizType === 'retail') {
+        baseLimit *= 0.9;
+        baseRate += 0.1;
+      } else if (bizType === 'service') {
+        baseLimit *= 0.7;
+        baseRate += 0.2;
+      }
+
+      // Credit Score Weight
+      if (creditScore === 'excellent') {
+        baseLimit *= 1.2;
+        baseRate -= 0.4;
+      } else if (creditScore === 'good') {
+        baseLimit *= 1.0;
+        baseRate -= 0.1;
+      } else if (creditScore === 'fair') {
+        baseLimit *= 0.8;
+        baseRate += 0.3;
+      } else if (creditScore === 'poor') {
+        baseLimit *= 0.4;
+        baseRate += 1.2;
+      }
+
+      // Employee count bonus
+      if (employeeCount >= 10) {
+        baseLimit += 3000;
+        baseRate -= 0.15;
+      } else if (employeeCount >= 5) {
+        baseLimit += 1500;
+        baseRate -= 0.05;
+      }
+
+      // Extra special check items
+      let extraBonus = 0;
+      if (document.getElementById('has-patent').checked) {
+        extraBonus += 1500;
+        baseRate -= 0.1;
+      }
+      if (document.getElementById('is-youth').checked) {
+        extraBonus += 500;
+        baseRate -= 0.15;
+      }
+      if (document.getElementById('is-export').checked) {
+        extraBonus += 2000;
+        baseRate -= 0.1;
+      }
+      if (document.getElementById('is-certified').checked) {
+        extraBonus += 2500;
+        baseRate -= 0.2;
+      }
+
+      baseLimit += extraBonus;
+
+      // Final adjustments
+      if (baseLimit < 1000) {
+        baseLimit = 1000; // 최소한도 보장
+      }
+      if (baseRate < 2.0) {
+        baseRate = 2.0; // 최소 기준 금리 보정
+      }
+
+      const formattedLimit = Math.floor(baseLimit).toLocaleString();
+      const formattedRate = baseRate.toFixed(2);
+
+      document.getElementById('result-limit-text').textContent = 
+        `고객님의 조건 기준 가상 정책자금 지원 예상 최대 한도 금액은 약 ${formattedLimit} 만 원 입니다.`;
+      
+      document.getElementById('result-rate-text').textContent = 
+        `동일 구간 적용 예상 평균 기준 우대 금리는 약 연 ${formattedRate}% 입니다.`;
+
+      let recommendationTip = "";
+      if (creditScore === 'poor') {
+        recommendationTip = "현재 개인 신용 등급 보강이 시급합니다. 즉시 고액 현금 대출이나 제2금융 채무를 줄인 후 신청하시는 것을 제안하며 소진공 특화 미소금융 채널 노크를 권장합니다.";
+      } else if (annualSales > 50000 && document.getElementById('is-certified').checked) {
+        recommendationTip = "우수한 기술 지표와 충분한 매출액을 만족하고 있어 기술보증기금이나 중진공의 대규모 시설 기금 자금 유치에 아주 적합합니다.";
+      } else {
+        recommendationTip = "기본적인 준비 요건이 안정적입니다. 다이렉트 온라인 자가 서류 접수를 통해 무불필요한 대행 수수료 낭비 없이 성공적으로 예산을 확보하시길 기원합니다.";
+      }
+
+      document.getElementById('result-tip-text').textContent = `진단 조언: ${recommendationTip}`;
+
+      // View results box
+      document.getElementById('calc-result').style.display = 'block';
+    }
+
+    /* JavaScript Function for Live Checklist Progress */
+    function updateChecklistProgress() {
+      const totalCheckboxes = 10;
+      let checkedCount = 0;
+
+      for (let i = 1; i <= totalCheckboxes; i++) {
+        if (document.getElementById('chk-' + i).checked) {
+          checkedCount++;
+        }
+      }
+
+      const percentage = (checkedCount / totalCheckboxes) * 100;
+      const score = checkedCount * 10;
+
+      // Update UI elements
+      document.getElementById('checklist-progress-bar').style.width = percentage + '%';
+      document.getElementById('checklist-score').textContent = score + '점 (준비율 ' + percentage + '%)';
+
+      let evaluationText = "";
+      if (score === 100) {
+        evaluationText = "완벽하게 모든 필수 서류 준비를 마쳤습니다. 지금 즉시 통합 홈페이지를 통해 싼값의 다이렉트 신청 절차를 기획해 보시는 것을 적극 제안합니다.";
+      } else if (score >= 70) {
+        evaluationText = "정책 자금 가입 및 심사 서면 평가 단계에 안정적으로 무사 진입 가능한 우수 상태입니다. 일부 미비한 추가 가점 서식 등을 최종적으로 보완해 보시기 바랍니다.";
+      } else if (score >= 40) {
+        evaluationText = "기초적인 서류는 확보되었으나 심사 반려 리스크가 상존합니다. 준비 지수가 낮을 때 성급히 심사에 돌입하기보다는 조금 더 철저히 자료를 갖추어 탈락에 따른 부결 대기 기간의 규제를 사전 방지하시길 추천드립니다.";
+      } else {
+        evaluationText = "서류 준비 기초 상태가 심각하게 취약합니다. 중진공 소진공 통합 안내 교육을 수강하시거나 전문가 무료 유선 상담 전화를 통해 준비 포인트를 먼저 잡아가실 것을 조언드립니다.";
+      }
+
+      document.getElementById('checklist-eval-text').textContent = `실시간 피드백: ${evaluationText}`;
+    }
+
+    // Initial check triggers
+    window.onload = function() {
+      updateChecklistProgress();
+    };
+  </script>
+  
